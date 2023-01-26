@@ -2,7 +2,11 @@ numpy
 pandas
 matplotlib
 seaborn
+statsmodels
+patsy
+scipy
 plotly
 dataframe_image
 tqdm
 ipykernel
+
