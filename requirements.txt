@@ -9,4 +9,5 @@ plotly
 dataframe_image
 tqdm
 ipykernel
-
+scikit-learn
+xgboost
