@@ -47,7 +47,22 @@ def rho_c(true, pred):
     return num / den
 
 
-def VIF(df, formula: str):
+def VIF(df: pd.DataFrame, formula: str) -> pd.DataFrame:
+    """Compute the Variance Inflation Factor (VIF) for a given data dataframe
+
+    Parameters
+    ----------
+    df : pandas DataFrame
+        pandas DataFrame with the data
+    formula : str
+        patsy formula
+
+    Returns
+    -------
+    DataFrame
+        pandas Dataframe with the VIF for each variable in the formula
+    """
+
     _, X = dmatrices(formula, df, return_type="dataframe")
     VIF = pd.DataFrame(
         {
@@ -57,6 +72,7 @@ def VIF(df, formula: str):
         }.items(),
         columns=["Variable", "VIF"],
     )
+
     return VIF
 
 

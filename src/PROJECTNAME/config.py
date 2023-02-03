@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import logging
 import platform
 from pathlib import Path
 
@@ -19,6 +20,13 @@ ROOT = Path(__file__).parent.parent.parent.absolute()
 
 DATA_DIR = Path.home() / dir_dict[platform.system()] / "path" / "to" / "data_dir"
 IMG_DIR = Path.home() / dir_dict[platform.system()] / "path" / "to" / "img_dir"
+
+# Logs basic configuration
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
 
 # My favourite settings for plotting. When importing something from this file, it will be automatically applied
 sns.set_theme(
