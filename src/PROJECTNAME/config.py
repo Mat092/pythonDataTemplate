@@ -5,9 +5,8 @@ import logging
 import platform
 from pathlib import Path
 
-import seaborn as sns
 import plotly.io as pio
-
+import seaborn as sns
 
 # Used to differentiate datapath in different OS
 dir_dict = {
@@ -37,8 +36,7 @@ sns.set_theme(
     font_scale=2.0,
     rc={
         "figure.figsize": (7, 5),
-        "xtick.labelsize": 11,
-        "ytick.labelsize": 11,
+        "axes.labelsize": 15,
         "axes.grid": True,
     },
 )

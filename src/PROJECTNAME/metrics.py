@@ -3,10 +3,9 @@
 
 import numpy as np
 import pandas as pd
-
+from patsy import dmatrices
 from scipy.stats import pearsonr
 from statsmodels.stats.outliers_influence import variance_inflation_factor
-from patsy import dmatrices
 
 
 def r2(true, pred) -> float:
@@ -47,27 +46,23 @@ def rho_c(true, pred):
     return num / den
 
 
-def VIF(df: pd.DataFrame, formula: str) -> pd.DataFrame:
+def VIF(df: pd.DataFrame) -> pd.DataFrame:
     """Compute the Variance Inflation Factor (VIF) for a given data dataframe
 
     Parameters
     ----------
     df : pandas DataFrame
         pandas DataFrame with the data
-    formula : str
-        patsy formula
 
     Returns
     -------
     DataFrame
         pandas Dataframe with the VIF for each variable in the formula
     """
-
-    _, X = dmatrices(formula, df, return_type="dataframe")
     VIF = pd.DataFrame(
         {
-            name: variance_inflation_factor(X.values, i)
-            for i, name in enumerate(X.columns)
+            name: variance_inflation_factor(df.values, i)
+            for i, name in enumerate(df.columns)
             if name != "Intercept"
         }.items(),
         columns=["Variable", "VIF"],
