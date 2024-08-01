@@ -47,7 +47,7 @@ def rho_c(true, pred):
 
 
 def VIF(df: pd.DataFrame) -> pd.DataFrame:
-    """Compute the Variance Inflation Factor (VIF) for a given data dataframe
+    """Compute the Variance Inflation Factor (VIF) for a given dataframe
 
     Parameters
     ----------
